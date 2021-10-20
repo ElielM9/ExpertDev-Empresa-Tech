@@ -1,0 +1,511 @@
+/** VARIABLES - CUSTOM PROPERTIES **/
+
+:root {
+    /*FUENTES*/
+    --titulos: 'Baloo 2', cursive;
+    --parrafos: 'Montserrat', sans-serif;
+    /*COLORES*/
+    --oscuro: #07070a;
+    --azulOscuro: #0a1128;
+    --azulClaro: #006fe6;
+    --blanco: #fefefcfb;
+}
+
+/** GLOBALES **/
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+.container {
+    width: min(95%, 120rem);
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin: 2rem;
+    font-family: var(--titulos);
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.7rem;
+}
+
+h4 {
+    font-size: 2.5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-size: 1.8rem;
+}
+
+a, p {
+    font-family: var(--parrafos);
+}
+
+img {
+    max-width: 100%;
+}
+
+.ocultar {
+    display: none;
+}
+
+.btn {
+    padding: 1rem 3rem;
+    font-weight: bold;
+    font-family: var(--parrafos);
+    font-size: 2rem;
+    text-align: center;
+    border: none;
+    color: var(--blanco);
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.azul {
+    background: var(--azulClaro);
+    transition: all .2s ease-in-out;
+}
+
+.azul:hover {
+    background: var(--blanco);
+    border: 2px solid var(--azulClaro);
+    color: var(--azulClaro);
+}
+
+.edge {
+    border: 2px solid var(--azulClaro);
+    color: var(--azulClaro);
+    display: block;
+    text-align: center;
+    transition: .2s all ease-in-out;
+}
+
+.edge:hover {
+    color: var(--blanco);
+    background: var(--azulClaro);
+}
+
+/* ANIMACION MENU */
+
+@keyframes desplazar {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* MOVIL */
+
+/* HEADER */
+
+.header {
+    position: relative;
+    height: 100vh;
+    min-height: 70rem;
+    background: url(../img/pexels-christina-morillo-1181396.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: -1;
+}
+
+.content-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 7rem;
+    background: var(--blanco);
+    box-shadow: 2px 1rem 1.6rem -6px rgba(0, 0, 0, .45);
+    z-index: 1;
+}
+
+.logo h2 span {
+    color: var(--azulClaro);
+}
+
+.nav {
+    position: absolute;
+    width: 100%;
+    top: 6rem;
+    text-align: center;
+    background: var(--blanco);
+    animation: desplazar .5s ease-in-out;
+}
+
+.nav a {
+    display: block;
+    font-size: 2rem;
+    padding: 1.5rem;
+    color: var(--oscuro);
+    transition: .2s all ease-in-out;
+}
+
+.nav a:hover {
+    background-color: var(--azulClaro);
+    color: var(--blanco);
+}
+
+.hamburguer span {
+    display: block;
+    width: 4rem;
+    height: 1rem;
+    border: 3px solid white;
+    background-color: var(--oscuro);
+}
+
+/* CONTENIDO-HEADER */
+
+.text__header {
+    padding-top: 8rem;
+    text-align: center;
+    color: var(--blanco);
+    margin-bottom: 1rem;
+}
+
+.form__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--blanco);
+    padding: 5rem;
+    border-radius: .5rem;
+}
+
+.form__header legend h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.input__header {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.input__header input {
+    width: 100%;
+    padding: 0 1.5rem;
+    height: 4.5rem;
+    border: 1px solid #f1f1f1;
+    border-radius: .5rem;
+    font-family: var(--parrafos);
+    outline: none;
+}
+
+/* VENTAJAS */
+
+.advantages {
+    background: var(--azulOscuro);
+    padding: 5rem;
+}
+
+.advantage {
+    color: var(--blanco);
+    text-align: center;
+}
+
+.advantage i {
+    font-size: 4em;
+}
+
+/* NOSOTROS */
+
+.about-us h2 {
+    text-align: center;
+    color: var(--azulClaro);
+}
+
+.content__about {
+    background: url(../img/pexels-tranmautritam-326511.jpg);
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    background-size: cover;
+    background-position: center center;
+}
+
+.text-us {
+    grid-row: 2/3;
+    background: var(--blanco);
+    padding: 2rem;
+}
+
+.text-us h3 {
+    color: var(--azulClaro);
+    text-align: center;
+}
+
+.text-us p {
+    text-align: center;
+}
+
+/* SERVICIOS */
+
+.services {
+    padding-top: 5rem;
+}
+
+.services h2 {
+    text-align: center;
+    color: var(--azulClaro);
+}
+
+.content__services {
+    display: grid;
+    text-align: center;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--azulClaro);
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    font-size: 3rem;
+    color: var(--blanco);
+    box-shadow: 1rem 1rem 1.6rem -6px rgba(0, 0, 0, .45);
+    transition: all .2s ease-in-out;
+}
+
+.service h3 {
+    font-size: 2.4rem;
+    color: var(--azulOscuro);
+}
+
+/* CONTACTO */
+
+.contact {
+    padding-top: 5rem;
+}
+
+.contact h2 {
+    text-align: center;
+    color: var(--azulClaro);
+}
+
+.content__contact {
+    display: grid;
+}
+
+.info__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    position: relative;
+    background: url(../img/pexels-thisisengineering-3861967.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    z-index: -1;
+}
+
+.info__contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: -1;
+}
+
+.info__contact h3, .info__contact p {
+    color: var(--blanco);
+}
+
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+    background: var(--azulOscuro);
+}
+
+.input-contact label {
+    color: var(--blanco);
+    font-family: var(--parrafos);
+    display: block;
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+.input-contact input {
+    font-family: var(--parrafos);
+    padding: 1.2rem 2rem;
+}
+
+.input-contact input, .input-contact textarea {
+    width: 100%;
+    outline: none;
+}
+
+.input-contact textarea {
+    resize: none;
+}
+
+.input-contact input[type="submit"] {
+    width: auto;
+    padding: 1rem 3rem;
+}
+
+/* FOOTER */
+
+.footer .logo h2, .footer p {
+    text-align: center;
+}
+
+/* ESCRITORIO */
+
+@media(min-width: 700px) {
+    /* GLOBAL */
+    h1 {
+        font-size: 7rem;
+    }
+    h2 {
+        font-size: 5rem;
+    }
+    /* HEADER */
+    .ocultar {
+        display: inline;
+    }
+    .nav {
+        position: relative;
+        top: unset;
+        width: auto;
+        background: unset;
+        animation: unset;
+    }
+    .nav a {
+        display: inline;
+    }
+    .hamburguer {
+        display: none;
+    }
+    /* CONTENIDO-HEADER */
+    .header {
+        background-attachment: fixed;
+    }
+    .header__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 85%;
+    }
+    .header__content, .form__header {
+        flex: 0 0 calc(50% - 1rem);
+    }
+    .text__header {
+        padding-top: 0;
+    }
+    .text__header h1 {
+        font-size: 7rem;
+        text-align: left;
+    }
+    .form__header legend h2 {
+        font-size: 3.5rem;
+    }
+    /* VENTAJAS */
+    .advantages__content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    /* NOSOTROS */
+    .about-us h2 {
+        font-size: 5rem;
+    }
+    .content__about {
+        grid-template-columns: repeat(2, 1fr);
+        background-attachment: fixed;
+    }
+    .text-us {
+        padding: 4rem;
+    }
+    .text-us p {
+        text-align: left;
+    }
+    .edge {
+        display: inline-block;
+        margin-top: 2rem;
+    }
+    /* SERVICIOS */
+    .content__services {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4rem;
+    }
+    .service:hover {
+        cursor: pointer;
+    }
+    .service:hover .bx {
+        background: var(--blanco);
+        color: var(--azulClaro);
+    }
+    .service p {
+        text-align: left;
+    }
+    /* CONTACTO */
+    .content__contact {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .info__contact {
+        height: 100vh;
+    }
+    /* FOOTER */
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
