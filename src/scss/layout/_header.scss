@@ -1,0 +1,153 @@
+@use "config/colors" as c;
+@use "config/fonts" as f;
+@use "mixins/breakpoints" as m;
+
+.header {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+  position: relative;
+  height: 100vh;
+  min-height: 70rem;
+  background: url(../assets/img/pexels-christina-morillo-1181396.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+  @include m.tablet {
+    background-attachment: fixed;
+  }
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 7rem;
+  background: c.$blanco;
+  box-shadow: 2px 1rem 1.6rem -6px rgba(0, 0, 0, 0.45);
+  z-index: 1;
+
+  .hamburguer {
+    @include m.tablet {
+      display: none;
+    }
+    span {
+      display: block;
+      width: 4rem;
+      height: 1rem;
+      border: 3px solid white;
+      background-color: c.$oscuro;
+    }
+  }
+}
+
+.logo {
+  h2 {
+    span {
+      color: c.$azulClaro;
+    }
+  }
+}
+
+.nav {
+  position: absolute;
+  width: 100%;
+  top: 6rem;
+  text-align: center;
+  background: c.$blanco;
+  animation: desplazar 0.5s ease-in-out;
+  a {
+    display: block;
+    font-size: 2rem;
+    padding: 1.5rem;
+    color: c.$oscuro;
+    transition: 0.2s all ease-in-out;
+    @include m.tablet {
+      display: inline;
+    }
+    &:hover {
+      background-color: c.$azulClaro;
+      color: c.$blanco;
+    }
+  }
+  @include m.tablet {
+    position: relative;
+    top: unset;
+    width: auto;
+    background: unset;
+    animation: unset;
+  }
+}
+
+/* CONTENIDO-HEADER */
+
+.header__content,
+.header__form {
+  @include m.tablet {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+
+.header__content {
+  @include m.tablet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 85%;
+  }
+  .header__text {
+    padding-top: 8rem;
+    text-align: center;
+    color: c.$blanco;
+    margin-bottom: 1rem;
+    @include m.tablet {
+      padding-top: 0;
+    }
+    h1 {
+      font-size: 4rem;
+      @include m.tablet {
+        text-align: left;
+      }
+    }
+  }
+}
+
+.header__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: c.$blanco;
+  padding: 5rem;
+  border-radius: 0.5rem;
+
+  legend {
+    h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+  }
+
+  .header__input {
+    margin-bottom: 1rem;
+    width: 100%;
+    input {
+      width: 100%;
+      padding: 0 1.5rem;
+      height: 4.5rem;
+      border: 1px solid #f1f1f1;
+      border-radius: 0.5rem;
+      font-family: f.$parrafos;
+      outline: none;
+    }
+  }
+}

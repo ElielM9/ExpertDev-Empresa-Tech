@@ -1,0 +1,39 @@
+@use "config/colors" as c;
+@use "mixins/grid" as g;
+@use "mixins/breakpoints" as m;
+
+.about {
+  h2 {
+    text-align: center;
+    color: c.$azulClaro;
+  }
+  &__content {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    background: url(../assets/img/pexels-tranmautritam-326511.jpg);
+    background-size: cover;
+    background-position: center center;
+    @include m.tablet {
+      @include g.grid(2, 1rem);
+      background-attachment: fixed;
+    }
+  }
+  &__text {
+    grid-row: 2/3;
+    background: c.$blanco;
+    padding: 2rem;
+    @include m.tablet {
+      padding: 4rem;
+    }
+    h3 {
+      text-align: center;
+      color: c.$azulClaro;
+      @include m.tablet {
+        text-align: left;
+      }
+    }
+    p {
+      text-align: left;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@use "config/colors" as c;
+@use "config/fonts" as f;
+@use "mixins/breakpoints" as m;
+@use 'mixins/grid' as g;
+
+.contact {
+  padding-top: 5rem;
+  h2 {
+    text-align: center;
+    color: c.$azulClaro;
+  }
+  &__content {
+    display: grid;
+    @include m.tablet {
+      @include g.grid(2, 0rem);
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    position: relative;
+    background: url(../assets/img/pexels-thisisengineering-3861967.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    z-index: -1;
+    @include m.tablet {
+      height: 100vh;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+    h3,
+    p {
+      color: c.$blanco;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+    background: c.$azulOscuro;
+  }
+  &__input {
+    label {
+      color: c.$blanco;
+      font-family: f.$parrafos;
+      display: block;
+      margin: 1rem 0;
+      font-weight: bold;
+    }
+    input {
+      font-family: f.$parrafos;
+      padding: 1.2rem 2rem;
+      [type="submit"] {
+        width: auto;
+        padding: 1rem 3rem;
+      }
+    }
+    textarea {
+      resize: none;
+    }
+  }
+  &__input {
+    input,
+    textarea {
+      width: 100%;
+      outline: none;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+@use "config/fonts" as f;
+@use "config/colors" as c;
+@use "mixins/breakpoints" as m;
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 2;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 2rem;
+  line-height: 1.2;
+  font-family: f.$titulos;
+}
+
+h1 {
+  font-size: 7rem;
+}
+
+h2 {
+  font-size: 3.6rem;
+}
+h3 {
+  font-size: 3rem;
+}
+
+a,
+p {
+  font-family: f.$parrafos;
+}
+
+p {
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.container {
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.ocultar {
+  display: none;
+  @include m.tablet {
+    display: inline;
+  }
+}
+
+.btn {
+  padding: 1rem 3rem;
+  font-weight: bold;
+  font-family: f.$parrafos;
+  font-size: 2rem;
+  text-align: center;
+  border: none;
+  color: c.$blanco;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.azul {
+  background: c.$azulClaro;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background: c.$blanco;
+    border: 2px solid c.$azulClaro;
+    color: c.$azulClaro;
+  }
+}
+
+.edge {
+  @include m.tablet {
+    display: inline-block;
+    margin-top: 2rem;
+  }
+  border: 2px solid c.$azulClaro;
+  color: c.$azulClaro;
+  display: block;
+  text-align: center;
+  transition: 0.2s all ease-in-out;
+  &:hover {
+    color: c.$blanco;
+    background: c.$azulClaro;
+  }
+}
+
+@keyframes desplazar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

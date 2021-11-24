@@ -1,0 +1,17 @@
+@use 'mixins/breakpoints' as m;
+
+.footer {
+  @include m.tablet {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .logo {
+    h2 {
+      text-align: center;
+    }
+  }
+  p{
+      text-align: center;
+  }
+}
