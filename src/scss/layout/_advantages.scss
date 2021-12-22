@@ -1,23 +1,21 @@
 @use "config/colors" as c;
-@use 'mixins/grid' as g;
-@use 'mixins/breakpoints' as m;
+@use "mixins/grid" as g;
+@use "mixins/breakpoints" as m;
 
 .advantages {
   background: c.$azulOscuro;
   padding: 5rem;
-  &__content{
-      @include m.tablet {
-          @include g.grid(3, 1rem)
-      }
+  &__content {
+    @include m.tablet {
+      @include g.grid(3, 1rem);
+    }
   }
   &__advantage {
     color: c.$blanco;
     text-align: center;
     i {
       font-size: 4rem;
-    }
-    p{
-      text-align: left;
+      text-align: center;
     }
   }
 }
