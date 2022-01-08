@@ -27,5 +27,5 @@ function showMenu() {
     section.scrollIntoView({
       behavior: `smooth`
     })
-  }
+  };
   
